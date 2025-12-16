@@ -54,7 +54,7 @@ pub const CCService = struct {
     pub fn do_counting(flags: [][]const u8, file: *std.fs.File) !void {
         const total_flags = flags.len;
 
-        try file.seekTo(0);
+        file.seekTo(0) catch {};
         var buf: [4096]u8 = undefined;
 
         var word_count: usize = 0;
